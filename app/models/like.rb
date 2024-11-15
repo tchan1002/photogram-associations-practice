@@ -14,6 +14,9 @@ class Like < ApplicationRecord
   validates(:photo, { :presence => true })
   validates(:photo_id, { 
     :uniqueness => { :scope => [:fan_id] }
+
+  belongs_to(:fan, class_name:"User", foreign_key:"fan_id")
+  belongs_to(:photo, class_name:"Photo", foreign_key:"photo_id")
   })
 
   # Association accessor methods to define:
